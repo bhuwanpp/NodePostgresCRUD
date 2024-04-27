@@ -2,6 +2,7 @@ import express, { Response, Request } from "express"
 import bodyParser from 'body-parser';
 import pg, { Query } from 'pg'
 import { QueryResult } from 'pg';
+var cors = require('cors')
 
 const app = express();
 const { Pool } = pg
@@ -9,6 +10,7 @@ const port: number = 4000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 
 const pool = new Pool({
     host: 'localhost',
